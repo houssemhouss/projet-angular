@@ -1,0 +1,44 @@
+<div class="col-sm-4 col-md-4 col-lg-4"><br>
+    <div id="a">
+        <h2 style="color: rgb(100, 100, 235);font-weight: bold;font-family: Algerian;">Ajouter un Joueur :</h2>
+    </div>
+    <form [formGroup]="JoueurForm" (submit)="addJoueur()">
+        <div hidden id="b">
+            <label>ID Joueur</label>
+            <input type="text" name="idJoueur" class="form-control">
+        </div>
+        <div class="mt-3">
+            <label>Nom Joueur</label>
+            <input type="text" name="nomJoueur" class="form-control" formControlName="name">
+        </div>
+        <div class="mt-3"> <label>Prix Joueur</label>
+            <input type="number" name="prixJoueur" class="form-control" formControlName="price">
+        </div>
+
+        <div class="mt-3">
+            <label>Date création</label>
+            <input type="date"  name="dateCreation" class="form-control" formControlName="date">
+        </div>
+
+        <div class="form-group">
+            <label>Equipe Joueur</label>
+            <select class="form-control" id="idEq" formControlName="equipe">
+                <option value="">--Sélectionner une equipe--</option>
+                <option [ngValue]="equipe" *ngFor="let equipe of marqueList ">{{equipe.nomMq}}</option>
+
+            </select>
+        </div>
+
+
+
+        <div class="mt-4">
+            <button type="submit" (click)="addJoueur()" class="btn btn-primary">Ajouter
+
+            </button>
+            <div>
+                <h3>{{ mess }}</h3>
+            </div>
+        </div>
+        <br>
+    </form>
+</div>
